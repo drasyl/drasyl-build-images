@@ -1,0 +1,4 @@
+FROM openjdk:11-jre-slim
+
+RUN apt-get update && apt-get install -y curl=7.64.0-4+deb10u1 && \
+	rm -rf /var/lib/apt/lists/*
