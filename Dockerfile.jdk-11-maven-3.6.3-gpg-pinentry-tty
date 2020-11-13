@@ -1,7 +1,9 @@
 FROM maven:3.6.1-jdk-11
 
-RUN apt remove gpg -y && \ 
-	wget -O - https://gist.githubusercontent.com/KevinRoebert/77756a0da56890d823d7319c50ff0d77/raw/f843c04c65404b50342a965fdc05420479c522df/install-gnupg22.sh | bash && \
-	rm -rf /var/lib/apt/lists/*
-	
+ADD install-gnupg22.sh /tmp/install-gnupg22.sh
+
+RUN apt-get remove gpg -y && \
+	/tmp/install-gnupg22.sh && \
+	rm -rf /tmp/install-gnupg22.sh /var/lib/apt/lists/*
+
 ENV PATH="/usr/local/bin/:${PATH}"
