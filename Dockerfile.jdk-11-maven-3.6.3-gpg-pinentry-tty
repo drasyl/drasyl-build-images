@@ -1,4 +1,4 @@
-FROM maven:3.6.1-jdk-11
+FROM maven:3.6.3-jdk-11
 
 ADD install-gnupg22.sh /tmp/install-gnupg22.sh
 
